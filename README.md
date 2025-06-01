@@ -81,13 +81,13 @@ src/
 1. Clona este repositorio:
 
 ```bash
-  git clone https://github.com/tu-usuario/vive-zarzal.git
+  git clone https://github.com/Cristianco9/tourism-app.giti
 ```
 
 2. Navega hasta el directorio del proyecto:
 
 ```bash
-  cd vive-zarzal
+  cd tourism-app
 ```
 
 3. Instala las dependencias:
