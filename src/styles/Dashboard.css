@@ -1,3 +1,56 @@
-.card:hover {
-    transform: scale(1.02);
+.light-mode {
+  background-color: #ffffff;
+  color: #212529;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: bold;
+  color: #e49a2e;
+}
+
+.dark-mode .card {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+.dark-mode .form-control {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border-color: #444;
+}
+
+.dark-mode .form-control::placeholder {
+  color: #aaa;
+}
+
+.dark-mode .btn-warning {
+  background-color: #f0ad4e;
+  color: #000;
+}
+
+.dark-mode .btn-warning:hover {
+  background-color: #e49a2e;
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+.card-text {
+  line-height: 1.4;
+}
+
+.dark-mode .card-text.text-muted {
+  color: #ffffff !important;
 }

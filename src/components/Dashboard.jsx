@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./Header";
+import '../styles/Dashboard.css';
 
 const mockServices = [
   {
@@ -85,17 +86,35 @@ const mockServices = [
   },
 ];
 
-function App() {
+function Dashboard() {
   const [search, setSearch] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const savedMode = localStorage.getItem("darkMode");
+    if (savedMode === "true") {
+      setDarkMode(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", darkMode);
+  }, [darkMode]);
 
   const filteredServices = mockServices.filter(service =>
     service.title.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
-    <>
-      <Header />
+    <div className={darkMode ? "dark-mode" : "light-mode"}>
+      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
       <div className="container py-4">
+        <div className="d-flex justify-content-center align-items-center mb-3">
+          <div className="flex-grow-1 text-center">
+            <h3 className="title">Servicios turísticos</h3>
+          </div>
+        </div>
+
         <div className="row justify-content-center mb-4">
           <div className="col-md-8">
             <div className="input-group shadow-sm">
@@ -114,7 +133,7 @@ function App() {
         <div className="row">
           {filteredServices.map(service => (
             <div key={service.id} className="col-md-4 mb-4">
-              <div className="card h-100 shadow-sm transition-transform" style={{ transition: 'transform 0.2s' }}>
+              <div className={`card h-100 shadow-sm ${darkMode ? "card-dark" : ""}`}>
                 <img
                   src={service.image}
                   className="card-img-top"
@@ -139,8 +158,8 @@ function App() {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
-export default App;
+export default Dashboard;
