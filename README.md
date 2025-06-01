@@ -81,7 +81,7 @@ src/
 1. Clona este repositorio:
 
 ```bash
-  git clone https://github.com/Cristianco9/tourism-app.giti
+  git clone https://github.com/Cristianco9/tourism-app.git
 ```
 
 2. Navega hasta el directorio del proyecto:
